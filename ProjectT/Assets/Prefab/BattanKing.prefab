@@ -63,7 +63,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 422746}
   m_Layer: 0
-  m_Name: MAP
+  m_Name: BattanKing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
