@@ -58,10 +58,11 @@ public class TextController : MonoBehaviour {
 					SetNextLine ();
 				} else if (currentLine >= scenarios.Length && (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return))) {
 					
-					// テキストウィンドウの大きさを大きくし、アニメーションスタート
+					// 全てのメッセージを表示したら、会話ウインドウを小さくするアニメーションスタート
 					iTween.ScaleTo(textPanel, iTween.Hash("scale", new Vector3(0.0f, 1.0f, 1.0f), "time", 0.3f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
 				}
 			} else {
+
 				// 完了していないなら文字をすべて表示する
 				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
 

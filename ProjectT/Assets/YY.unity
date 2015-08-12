@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &24219626
+--- !u!1001 &348142842
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -126,6 +126,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11437198, guid: 211baffd886544627b0778ed8a55cffc, type: 2}
+      propertyPath: cameraTarget
+      value: 
+      objectReference: {fileID: 902361751}
+    - target: {fileID: 11423728, guid: 211baffd886544627b0778ed8a55cffc, type: 2}
+      propertyPath: cameraTarget
+      value: 
+      objectReference: {fileID: 902361751}
+    - target: {fileID: 11416402, guid: 211baffd886544627b0778ed8a55cffc, type: 2}
+      propertyPath: cameraTarget
+      value: 
+      objectReference: {fileID: 902361751}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211baffd886544627b0778ed8a55cffc, type: 2}
   m_IsPrefabParent: 0
@@ -187,6 +199,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
       propertyPath: jumpPower
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100338, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
@@ -265,6 +281,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!4 &902361751 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 79674db77adfc4d6f9f17fb043493b1e, type: 2}
+  m_PrefabInternal: {fileID: 1756427742}
 --- !u!1 &1147013199
 GameObject:
   m_ObjectHideFlags: 0

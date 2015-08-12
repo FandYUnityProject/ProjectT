@@ -6,6 +6,8 @@
  *      キャラクター毎にアタッチすれば、キャラクター毎に異なるメッセージが表示可能。
  *      アタッチしたキャラクターのTriggerにプレイヤーが触れ、クリック(Enter)することで会話ウィンドウが表示される
  * 
+ * 【注意】：アタッチしたキャラクターのObject内に”MessageIcon(+MessageIcon.cs)”をセットすること！
+ * 
  * --- How To Use ---
  * アタッチ：会話メッセージをするキャラクター (GameObject)
  * Inspector：【TextControllerClass】TextController(GameObject)をセット
@@ -28,8 +30,9 @@ public class CharacterText : MonoBehaviour {
 	
 	private GameObject textCanvas;	// uGUIのテキストキャンバス
 	private GameObject textPanel;	// uGUIのテキストPanel
+	private GameObject messageIcon;	// 会話のアイコン
 	
-	private bool isTextStart      = false;	// 会話を開始したか
+	private bool isTextStart     = false;	// 会話を開始したか
 	public static bool isTextEnd = false;	// 会話が終了したか
 	
 	[SerializeField] [Range(0.001f, 0.3f)]
@@ -39,8 +42,12 @@ public class CharacterText : MonoBehaviour {
 	void Start () {
 
 		// 会話開始時に”TextCanvas”を表示する
-		textCanvas = GameObject.Find ("TextCanvas");
-		textPanel  = GameObject.Find ("TextPanel");
+		textCanvas  = GameObject.Find ("TextCanvas");
+		textPanel   = GameObject.Find ("TextPanel");
+		messageIcon = GameObject.Find ("MessageIcon");
+
+		// 会話アイコンの大きさを0にする
+		messageIcon.transform.localScale = new Vector3(0.0f, 0.0f, 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -49,18 +56,19 @@ public class CharacterText : MonoBehaviour {
 		// トリガー（会話可能範囲）に接触し、マウスクリック（Enter)を押した時の処理
 		if(isTextStart){
 
-			// TODO: 会話可能範囲内に入ったら、キャラクターから吹き出しアイコン（会話可能を表すUI）を表示するようにする
-
-
 			if (currentLine < scenarios.Length && (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return))) {
 
 				// クリックもしくはEnterキーで会話開始
 				if (currentLine == 0) {
 
+					// 会話を開始したら、吹き出しアイコンを小さくするアニメーションを開始する
+					iTween.ScaleTo (messageIcon, iTween.Hash ("scale", new Vector3 (0.0f, 0.0f, 1.0f), "time", 0.3f));
+
+					// 会話終了フラグを下ろす
 					isTextEnd = false;
 
 					// テキストウィンドウの大きさを初期化し、アニメーションスタート
-					textPanel.transform.localScale = new Vector3(0.0f,1.0f,1.0f);
+					textPanel.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
 					iTween.ScaleTo(textPanel, iTween.Hash("scale", new Vector3(1.0f, 1.0f, 1.0f), "time", 0.3f));
 
 					// TextControllerのStartScenarios関数を実行
@@ -72,30 +80,56 @@ public class CharacterText : MonoBehaviour {
 				currentLine ++;
 			} else if (isTextEnd) {
 
+				// 会話が終了したら吹き出しアイコンを再表示する
+				iTween.ScaleTo (messageIcon, iTween.Hash ("scale", new Vector3 (0.2f, 0.2f, 1.0f), "time", 0.3f));
+
 				// 会話が終了したら行数番号を0に戻す
 				currentLine = 0;
 			}
 		}
 	}
+	
+	// トリガー（会話可能範囲）に接触した瞬間の処理
+	void OnTriggerEnter(Collider coll){
+
+		if (coll.tag == "Player") {
+
+			// 会話可能範囲内に入ったら、吹き出しアイコンの位置を調整し、吹き出しアイコン（会話可能を表すUI）を表示する
+			messageIcon.transform.position = new Vector3 (this.transform.position.x
+			                                             , this.transform.position.y + 1.0f
+			                                              , this.transform.position.z);
+			iTween.ScaleTo (messageIcon, iTween.Hash ("scale", new Vector3 (0.2f, 0.2f, 1.0f), "time", 0.3f));
+		}
+	}
+
 
 	// トリガー（会話可能範囲）に接触している間の処理
 	void OnTriggerStay(Collider coll){
 
 		if (coll.tag == "Player") {
 
-			// TODO: 会話可能範囲内に入ったら、キャラクターから吹き出しアイコン（会話可能を表すUI）を表示するようにする
-
+			// 会話開始の許可を行う
 			if( Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)){
 				isTextStart = true;
 			}
 		}
 	}
 
-	// トリガー（会話可能範囲）から出たら、会話可能フラグを下ろす
+	// トリガー（会話可能範囲）から出たら会話可能フラグを下ろし、吹き出しアイコン/会話ウインドウを小さくするアニメーションを開始する
 	void OnTriggerExit(Collider coll){
 		
 		if (coll.tag == "Player") {
+
+			// 会話開始の禁止を行う
 			isTextStart = false;
+
+			// 会話を強制的に終了させる
+			currentLine = 0;
+			iTween.ScaleTo(textPanel, iTween.Hash("scale", new Vector3(0.0f, 1.0f, 1.0f), "time", 0.3f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
+			Debug.Log(this.name + ": 会話強制終了");
+
+			// 吹き出しアイコンを小さくするアニメーションを開始する
+			iTween.ScaleTo (messageIcon, iTween.Hash ("scale", new Vector3 (0.0f, 0.0f, 1.0f), "time", 0.3f));
 		}
 	}
 }
