@@ -13,6 +13,8 @@
  * Inspector：【TextControllerClass】TextController(GameObject)をセット
  *            【Scenarios > Size】表示させるテキストの行数(ウィンドウ内に収まる文字列で1行とする)
  *            【Scenarios > ElementXX】各行の表示する文字列
+ *            【TextCanvas】TextCanvas(GameObject)をセット
+ *            【TextPanel】TextPanel(GameObject)をセット
  *            【intervalForCharacterTextSpeed】1文字の表示にかかる時間
  * 
  * 制作：2015/08/11  Guttyon
@@ -28,8 +30,8 @@ public class CharacterText : MonoBehaviour {
 	public  string[] scenarios;		// シナリオを格納する
 	private int currentLine = 0;	// 現在の行番号
 	
-	private GameObject textCanvas;	// uGUIのテキストキャンバス
-	private GameObject textPanel;	// uGUIのテキストPanel
+	public  GameObject textCanvas;	// uGUIのテキストキャンバス
+	public  GameObject textPanel;	// uGUIのテキストPanel
 	private GameObject messageIcon;	// 会話のアイコン
 	
 	private bool isTextStart     = false;	// 会話を開始したか
@@ -42,8 +44,8 @@ public class CharacterText : MonoBehaviour {
 	void Start () {
 
 		// 会話開始時に”TextCanvas”を表示する
-		textCanvas  = GameObject.Find ("TextCanvas");
-		textPanel   = GameObject.Find ("TextPanel");
+		//textCanvas  = GameObject.Find ("TextCanvas");
+		//textPanel   = GameObject.Find ("TextPanel");
 		messageIcon = GameObject.Find ("MessageIcon");
 
 		// 会話アイコンの大きさを0にする
@@ -123,13 +125,20 @@ public class CharacterText : MonoBehaviour {
 			// 会話開始の禁止を行う
 			isTextStart = false;
 
+			// 吹き出しアイコンを小さくするアニメーションを開始する
+			iTween.ScaleTo (messageIcon, iTween.Hash ("scale", new Vector3 (0.0f, 0.0f, 1.0f), "time", 0.3f));
+			
 			// 会話を強制的に終了させる
 			currentLine = 0;
 			iTween.ScaleTo(textPanel, iTween.Hash("scale", new Vector3(0.0f, 1.0f, 1.0f), "time", 0.3f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
-			Debug.Log(this.name + ": 会話強制終了");
-
-			// 吹き出しアイコンを小さくするアニメーションを開始する
-			iTween.ScaleTo (messageIcon, iTween.Hash ("scale", new Vector3 (0.0f, 0.0f, 1.0f), "time", 0.3f));
 		}
+	}
+
+	
+	// テキストウィンドウのアニメーション（ウィンドウを閉じる）が終了したら、全ての文字を表示しCanvasを非表示にする
+	void OnComplete()
+	{
+		textCanvas.SetActive (false);
+		Debug.Log(this.name + ": 会話強制終了");
 	}
 }
