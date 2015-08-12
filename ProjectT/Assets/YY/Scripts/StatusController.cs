@@ -29,7 +29,7 @@ public class StatusController : MonoBehaviour {
 
 		// ”TextCanvas”を非表示にする
 		statusCanvas = GameObject.Find ("StatusCanvas");
-		statusCanvas.SetActive(false);
+		statusCanvas.SetActive(true);
 	}
 	
 	// Update is called once per frame
