@@ -31,35 +31,45 @@ public class Pauser : MonoBehaviour {
 	Vector2[] rg2dBodyVels = null;
 	float[] rg2dBodyAVels = null;
 	*/
-	public static bool isPause = false;	// ポーズ中かどうか
+	public static bool isPause;	// ポーズ中かどうか
+	public static bool isKeyP = false;	// ポーズ中かどうか
 	
 	// Use this for initialization
 	void Start() {
 
-		// 最初にtrueにしておくと、1回目の”P”キーで反応しない不具合を回避（原因不明）
-		isPause = true;
-
 		// ポーズ対象に追加する
 		targets.Add(this);
+		
+		
+		// 最初にtrueにしておくと、1回目の”P”キーで反応しない不具合を回避（原因不明）
+		isPause = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		// Pキーを押すとポーズ / ポーズ解除を行う
 		if (Input.GetKeyDown (KeyCode.P)) {
 
 			if( !isPause ){
-
 				// ポーズしてないならポーズする
-				Pauser.Pause();
 				isPause = true;
+				Pause();
 			} else {
-				
-				// ポーズしているならポーズ解除する
-				Pauser.Resume();
-				isPause = false;
+				if( !isKeyP ){
+					// ポーズしているならポーズ解除する
+					isPause = false;
+					Resume();
+				}
 			}
+			isKeyP = true;
+		}
+
+		// キャリブレーション対策
+		if (Input.GetKeyUp (KeyCode.P)) {
+
+			// Debug.Log("isPause: " + isPause);
+			isKeyP = false;
+			// Debug.Log("isKeyP: " +  isKeyP);
 		}
 	}
 	
@@ -80,8 +90,8 @@ public class Pauser : MonoBehaviour {
 		
 		// 有効なコンポーネントを取得
 		pauseBehavs = Array.FindAll(GetComponentsInChildren<Behaviour>(), (obj) => { return obj.enabled; });
-		foreach ( var com in pauseBehavs ) {
-			com.enabled = false;
+		foreach ( var comp in pauseBehavs ) {
+			comp.enabled = false;
 		}
 
 		// 3D用オブジェクト
@@ -100,6 +110,7 @@ public class Pauser : MonoBehaviour {
 		rg2dBodies = Array.FindAll(GetComponentsInChildren<Rigidbody2D>(), (obj) => { return !obj.IsSleeping(); });
 		rg2dBodyVels = new Vector2[rg2dBodies.Length];
 		rg2dBodyAVels = new float[rg2dBodies.Length];
+		
 		for ( var i = 0 ; i < rg2dBodies.Length ; ++i ) {
 			rg2dBodyVels[i] = rg2dBodies[i].velocity;
 			rg2dBodyAVels[i] = rg2dBodies[i].angularVelocity;
@@ -118,8 +129,8 @@ public class Pauser : MonoBehaviour {
 		}
 		
 		// ポーズ前の状態にコンポーネントの有効状態を復元
-		foreach ( var com in pauseBehavs ) {
-			com.enabled = true;
+		foreach ( var comp in pauseBehavs ) {
+			comp.enabled = true;
 		}
 
 
@@ -160,7 +171,7 @@ public class Pauser : MonoBehaviour {
 		foreach ( var obj in targets ) {
 
 			// スクリプトを適用したオブジェクト名のデバッグ用
-			// Debug.Log("Pause: " + obj);
+			Debug.Log("Pause: " + obj);
 
 			if( obj.name != "PauseMST" ){
 				obj.OnPause();
@@ -173,7 +184,7 @@ public class Pauser : MonoBehaviour {
 
 		foreach ( var obj in targets ) {
 
-			// Debug.Log("Resume: " + obj);
+			Debug.Log("Resume: " + obj);
 			obj.OnResume();
 		}
 	}
