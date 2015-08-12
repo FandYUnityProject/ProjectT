@@ -5,6 +5,7 @@
  *　　　 会話内容は、”CharacterText.cs”をアタッチしたObjectのInspector内にある”Scenarios”内で設定可能。
  *      設定には”Size: 表示させるテキストの行数(ウィンドウ内に収まる文字列で1行とする), ElementXX: 表示する文字列” がある。
  * 
+ * --- How To Use ---
  * アタッチ：TextCanvas (uGUI)
  * Inspector：【Ui Text】Canvas内にあるuGUIのUI Text
  *
@@ -30,7 +31,9 @@ public class TextController : MonoBehaviour {
 	private int lastUpdateCharacter = -1;		// 表示中の文字数
 
 	private GameObject textCanvas;	// uGUIのテキストキャンバス
-	bool isStartText = false;
+	public  GameObject textPanel;	// uGUIのテキストPanel
+	bool isStartText = false;		// テキストを表示開始したか
+	bool isFirstText = false;		// 最初の1行目のテキストか
 
 	// 文字の表示が完了しているかどうか
 	public bool IsCompleteDisplayTest{
@@ -41,6 +44,7 @@ public class TextController : MonoBehaviour {
 	{
 		// ”TextCanvas”を非表示にする
 		textCanvas = GameObject.Find ("TextCanvas");
+		textPanel  = GameObject.Find ("TextPanel");
 		textCanvas.SetActive(false);
 	}
 	
@@ -53,15 +57,20 @@ public class TextController : MonoBehaviour {
 				if (currentLine < scenarios.Length && (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return))) {
 					SetNextLine ();
 				} else if (currentLine >= scenarios.Length && (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return))) {
-					// 全ての文字を表示したらCanvasを非表示にする
-					textCanvas.SetActive (false);
-					isStartText = false;
-					Debug.Log ("会話終了");
+					
+					// テキストウィンドウの大きさを大きくし、アニメーションスタート
+					iTween.ScaleTo(textPanel, iTween.Hash("scale", new Vector3(0.0f, 1.0f, 1.0f), "time", 0.3f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
 				}
 			} else {
 				// 完了していないなら文字をすべて表示する
 				if (Input.GetMouseButtonDown (0) || Input.GetKeyDown (KeyCode.Return)) {
-					timeUntilDisplay = 0;
+
+					// 最初の行スタート直後に全文字を表示する挙動を修正
+					if( isFirstText ){
+						timeUntilDisplay = 0;
+					}
+
+					isFirstText = true;
 				}
 			}
 			
@@ -76,6 +85,18 @@ public class TextController : MonoBehaviour {
 		}
 	}
 
+	// テキストウィンドウのアニメーション（ウィンドウを閉じる）が終了したら、全ての文字を表示しCanvasを非表示にする
+	void OnComplete()
+	{
+		// 全ての文字を表示したらCanvasを非表示にする
+		textCanvas.SetActive (false);
+		isStartText = false;
+
+		// 会話終了フラグを立てる
+		CharacterText.isTextEnd = true;
+		Debug.Log ("会話終了");
+	}
+	
 	// テキストを更新する
 	void SetNextLine()
 	{
@@ -92,7 +113,7 @@ public class TextController : MonoBehaviour {
 	}
 
 	// 表示するテキストを受け取り、表示させる
-	public void StartScenarios(string[] scenario){
+	public void StartScenarios(string[] scenario, float intervalForCharacterTextSpeed = 0.05f){
 
 		// TextCanvas表示
 		textCanvas.SetActive(true);
@@ -100,6 +121,7 @@ public class TextController : MonoBehaviour {
 		// 示するテキスト内容を取得し、テキスト表示開始
 		scenarios = scenario;
 		isStartText = true;
+		isFirstText = false;
 
 		// 初期化
 		currentLine = 0;
@@ -107,6 +129,9 @@ public class TextController : MonoBehaviour {
 		timeUntilDisplay = 0;
 		timeElapsed = 1;
 		lastUpdateCharacter = -1;
+
+		// 引数を元にメッセージの表示スピードを変更
+		intervalForCharacterDisplay = intervalForCharacterTextSpeed;
 		
 		SetNextLine();
 	}
