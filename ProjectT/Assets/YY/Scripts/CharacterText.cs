@@ -146,7 +146,7 @@ public class CharacterText : MonoBehaviour {
 	}
 
 	
-	// テキストウィンドウのアニメーション（ウィンドウを閉じる）が終了したら、全ての文字を表示しCanvasを非表示にする
+	// テキストPanelのアニメーション（ウィンドウを閉じる）が終了したら、全ての文字を表示しCanvasを非表示にする
 	void OnComplete()
 	{
 		textCanvas.SetActive (false);

@@ -6,15 +6,15 @@
  *      設定には”Size: 表示させるテキストの行数(ウィンドウ内に収まる文字列で1行とする), ElementXX: 表示する文字列” がある。
  * 
  * --- How To Use ---
- * アタッチ：TextCanvas (uGUI)
- * Inspector：【Ui Text】Canvas内にあるuGUIのUI Text
- *
+ * アタッチ：TextController (uGUI)
+ * Inspector：【Ui Text】TextCanvas内にあるuGUIのUI Text
+ *            【TextPanel】TextCanvas内にあるuGUIのTextPanel
  * 制作：2015/08/11  Guttyon
 */
 
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 
 public class TextController : MonoBehaviour {
 	
@@ -51,6 +51,7 @@ public class TextController : MonoBehaviour {
 	void Update () 
 	{
 		if (isStartText) {
+
 			// 文字の表示が完了しているならクリック(Enter)時に次の行を表示する
 			if (IsCompleteDisplayTest) {
 				// 現在の行番号がラストまで行ってない状態でクリック(Enter)すると、テキストを更新する
@@ -80,8 +81,12 @@ public class TextController : MonoBehaviour {
 			
 			// 表示文字数が前回の表示文字数と異なるならテキストを更新する
 			if (displayCharacterCount != lastUpdateCharacter) {
-				uiText.text = currentText.Substring (0, displayCharacterCount);
-				lastUpdateCharacter = displayCharacterCount;
+
+				// ポーズ中はテキストを更新しない
+				if ( !Pauser.isPause ){
+					uiText.text = currentText.Substring (0, displayCharacterCount);
+					lastUpdateCharacter = displayCharacterCount;
+				}
 			}
 		}
 	}
@@ -102,11 +107,12 @@ public class TextController : MonoBehaviour {
 	void SetNextLine()
 	{
 		// 現在の行のテキストをuiTextに流し込み、現在の行番号を一つ追加する
-		currentText = scenarios[currentLine];
+		currentText = scenarios [currentLine];
 		currentLine ++;
 		
 		// 想定表示時間と現在の時刻をキャッシュ
 		timeUntilDisplay = currentText.Length * intervalForCharacterDisplay;
+
 		timeElapsed = Time.time;
 		
 		// 文字カウントを初期化
