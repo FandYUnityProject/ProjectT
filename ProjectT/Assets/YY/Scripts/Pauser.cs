@@ -32,7 +32,7 @@ public class Pauser : MonoBehaviour {
 	float[] rg2dBodyAVels = null;
 	*/
 	public static bool isPause;	// ポーズ中かどうか
-	public static bool isKeyP = false;	// ポーズ中かどうか
+	public static bool isKeyP = false;	// "Pキー”を押しているかどうか
 	
 	// Use this for initialization
 	void Start() {
