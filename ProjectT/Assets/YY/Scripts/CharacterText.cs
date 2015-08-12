@@ -7,6 +7,8 @@
  *      アタッチしたキャラクターのTriggerにプレイヤーが触れ、クリック(Enter)することで会話ウィンドウが表示される
  * 
  * 【注意】：アタッチしたキャラクターのObject内に”MessageIcon(+MessageIcon.cs)”をセットすること！
+ * 【！】会話中にPlayer(Unity-chan)を動かさない場合は、UnityChanControlScriptWithRgidBody.cs内にある
+ *       “void FixedUpdate”関数を全てif(CharacterText.isTextEnd){}でくくる。
  * 
  * --- How To Use ---
  * アタッチ：会話メッセージをするキャラクター (GameObject)
@@ -33,9 +35,10 @@ public class CharacterText : MonoBehaviour {
 	public  GameObject textCanvas;	// uGUIのテキストキャンバス
 	public  GameObject textPanel;	// uGUIのテキストPanel
 	private GameObject messageIcon;	// 会話のアイコン
+	private GameObject playerObj;	// Playerのオブジェクト
 	
 	private bool isTextStart     = false;	// 会話を開始したか
-	public static bool isTextEnd = false;	// 会話が終了したか
+	public static bool isTextEnd = true;	// 会話が終了したか
 	
 	[SerializeField] [Range(0.001f, 0.3f)]
 	float intervalForCharacterTextSpeed = 0.05f;	// 1文字の表示にかかる時間
@@ -50,6 +53,9 @@ public class CharacterText : MonoBehaviour {
 
 		// 会話アイコンの大きさを0にする
 		messageIcon.transform.localScale = new Vector3(0.0f, 0.0f, 1.0f);
+
+		// Playerのオブジェクトを取得
+		playerObj = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
@@ -72,6 +78,11 @@ public class CharacterText : MonoBehaviour {
 					// テキストウィンドウの大きさを初期化し、アニメーションスタート
 					textPanel.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
 					iTween.ScaleTo(textPanel, iTween.Hash("scale", new Vector3(1.0f, 1.0f, 1.0f), "time", 0.3f));
+
+					// 会話時にプレイヤーが会話相手を向くようにする
+					Vector3 playerLookAtTargetPos  = this.transform.position;
+					playerLookAtTargetPos.y = playerObj.transform.position.y;
+					playerObj.transform.LookAt(playerLookAtTargetPos);
 
 					// TextControllerのStartScenarios関数を実行
 					// (表示するテキスト（Inspectorで設定）, テキスト表示スピード(float 目安: 【早】0.03f〜0.12f【遅】))
