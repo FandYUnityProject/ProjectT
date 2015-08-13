@@ -19,6 +19,8 @@ public class StatusController : MonoBehaviour {
 	private GameObject statusCanvas;	// uGUIのステータスキャンバス
 	public  GameObject statusPanel;		// uGUIのステータスPanel
 
+	bool isFirstPause = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -27,7 +29,7 @@ public class StatusController : MonoBehaviour {
 
 		// ”TextCanvas”を非表示にする
 		statusCanvas = GameObject.Find ("StatusCanvas");
-		statusCanvas.SetActive(false);
+		statusCanvas.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -36,19 +38,39 @@ public class StatusController : MonoBehaviour {
 		// Pキーを押すと”TextCanvas”を表示してステータスパネルの大きさを元に戻す
 		if (Input.GetKeyDown (KeyCode.P)) {
 
-			// 処理順の関係で”!isPause”の時にポーズ（ステータス）画面を表示する
-			// ※ StatusController.csの方が処理が早い
-			if ( !Pauser.isPause ){
+			// キャリブレーション対策で、初めのポーズだけ処理条件を逆にする
+			if ( !isFirstPause ){
+				// ポーズ（ステータス）画面を表示する
+				if ( Pauser.isPause ){
 
-				// ”TextCanvas”を表示してステータスパネルの大きさを元に戻す
-				statusCanvas.SetActive(true);
-				iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(1.0f, 1.0f, 1.0f), "time", 0.4f));
-				Debug.Log( "ステータス画面を開く");
+					// ”TextCanvas”を表示してステータスパネルの大きさを元に戻す
+					statusCanvas.SetActive(true);
+					iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(1.0f, 1.0f, 1.0f), "time", 0.4f));
+					Debug.Log( "ステータス画面を開く");
+
+				} else {
+
+					// ”TextCanvas”を表示してステータスパネルの大きさを小さくする
+					iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(0.0f, 0.0f, 1.0f), "time", 0.4f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
+				}
+
+				isFirstPause = true;
 
 			} else {
-				
-				// ”TextCanvas”を表示してステータスパネルの大きさを小さくする
-				iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(0.0f, 0.0f, 1.0f), "time", 0.4f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
+
+				// ポーズ（ステータス）画面を表示する
+				if ( !Pauser.isPause ){
+					
+					// ”TextCanvas”を表示してステータスパネルの大きさを元に戻す
+					statusCanvas.SetActive(true);
+					iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(1.0f, 1.0f, 1.0f), "time", 0.4f));
+					Debug.Log( "ステータス画面を開く");
+					
+				} else {
+					
+					// ”TextCanvas”を表示してステータスパネルの大きさを小さくする
+					iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(0.0f, 0.0f, 1.0f), "time", 0.4f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
+				}
 			}
 		}
 	}
