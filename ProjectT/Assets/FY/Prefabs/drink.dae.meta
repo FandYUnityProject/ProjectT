@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: c701df65637b72e42ace01e62a1ff884
-timeCreated: 1439369001
+guid: 47cd6e951d3aca149b7432e01fa2b93a
+timeCreated: 1439425893
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: Camera
-    100002: //RootNode
-    100004: Icosphere
+    100002: Cylinder
+    100004: //RootNode
     100006: Lamp
     400000: Camera
-    400002: //RootNode
-    400004: Icosphere
+    400002: Cylinder
+    400004: //RootNode
     400006: Lamp
-    2300000: Icosphere
-    3300000: Icosphere
-    4300000: Icosphere
+    2300000: Cylinder
+    3300000: Cylinder
+    4300000: Cylinder
     9500000: //RootNode
   materials:
     importMaterials: 1
