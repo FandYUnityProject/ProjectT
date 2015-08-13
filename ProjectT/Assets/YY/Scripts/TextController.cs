@@ -82,11 +82,8 @@ public class TextController : MonoBehaviour {
 			// 表示文字数が前回の表示文字数と異なるならテキストを更新する
 			if (displayCharacterCount != lastUpdateCharacter) {
 
-				// ポーズ中はテキストを更新しない
-				if ( !Pauser.isPause ){
-					uiText.text = currentText.Substring (0, displayCharacterCount);
-					lastUpdateCharacter = displayCharacterCount;
-				}
+				uiText.text = currentText.Substring (0, displayCharacterCount);
+				lastUpdateCharacter = displayCharacterCount;
 			}
 		}
 	}

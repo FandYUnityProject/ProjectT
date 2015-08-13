@@ -68,7 +68,7 @@ public class StatusController : MonoBehaviour {
 					
 				} else {
 					
-					// ”TextCanvas”を表示してステータスパネルの大きさを小さくする
+					// ステータスパネルの大きさを小さくする
 					iTween.ScaleTo(statusPanel, iTween.Hash("scale", new Vector3(0.0f, 0.0f, 1.0f), "time", 0.4f, "oncomplete", "OnComplete", "onCompletetarget", this.gameObject));
 				}
 			}

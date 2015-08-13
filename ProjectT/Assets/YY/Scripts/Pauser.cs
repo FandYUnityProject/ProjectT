@@ -31,8 +31,9 @@ public class Pauser : MonoBehaviour {
 	Vector2[] rg2dBodyVels = null;
 	float[] rg2dBodyAVels = null;
 	*/
-	public static bool isPause;	// ポーズ中かどうか
-	public static bool isKeyP = false;	// "Pキー”を押しているかどうか
+	public static bool isPause;					// ポーズ中かどうか
+	public static bool isKeyP        = false;	// "Pキー”を押しているかどうか
+	public static bool isNotArrowKey;			// 矢印キーを押しているかどうか
 	
 	// Use this for initialization
 	void Start() {
@@ -43,6 +44,8 @@ public class Pauser : MonoBehaviour {
 		
 		// 最初にtrueにしておくと、1回目の”P”キーで反応しない不具合を回避（原因不明）
 		isPause = true;
+
+		isNotArrowKey = true;
 	}
 
 	// Update is called once per frame
@@ -50,15 +53,31 @@ public class Pauser : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.P)) {
 
+			Debug.Log(Input.GetKey(KeyCode.LeftArrow) + "," + Input.GetKey(KeyCode.RightArrow) + "," + Input.GetKey(KeyCode.UpArrow) + "," + Input.GetKey(KeyCode.DownArrow) + ",G:" + PlayerGround.isPlayerGround);
+
+			// 矢印キーを押しているかどうかチェック
+			if (!Input.GetKey(KeyCode.LeftArrow)
+			    && !Input.GetKey(KeyCode.RightArrow)
+			    && !Input.GetKey(KeyCode.UpArrow)
+			    && !Input.GetKey(KeyCode.DownArrow))
+			{
+				isNotArrowKey = true;
+			} else {
+				isNotArrowKey = false;
+			}
+
+
 			if( !isPause ){
 				// ポーズしてないならポーズする
 				isPause = true;
 				Pause();
+
 			} else {
 				if( !isKeyP ){
 					// ポーズしているならポーズ解除する
 					isPause = false;
 					Resume();
+
 				}
 			}
 			isKeyP = true;
