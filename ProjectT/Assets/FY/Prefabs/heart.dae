@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.75.0 commit date:2015-07-07, commit time:14:56, hash:c27589e</authoring_tool>
     </contributor>
-    <created>2015-08-12T17:42:23</created>
-    <modified>2015-08-12T17:42:23</modified>
+    <created>2015-08-13T09:29:05</created>
+    <modified>2015-08-13T09:29:05</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -103,7 +103,7 @@
   </library_lights>
   <library_images/>
   <library_effects>
-    <effect id="Material_001-effect">
+    <effect id="Heart-effect">
       <profile_COMMON>
         <technique sid="common">
           <phong>
@@ -131,8 +131,8 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="Material_001-material" name="Material_001">
-      <instance_effect url="#Material_001-effect"/>
+    <material id="Heart-material" name="Heart">
+      <instance_effect url="#Heart-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -161,7 +161,7 @@
         <vertices id="Icosphere-mesh-vertices">
           <input semantic="POSITION" source="#Icosphere-mesh-positions"/>
         </vertices>
-        <polylist material="Material_001-material" count="80">
+        <polylist material="Heart-material" count="80">
           <input semantic="VERTEX" source="#Icosphere-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Icosphere-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -186,7 +186,7 @@
         <instance_geometry url="#Icosphere-mesh" name="Icosphere">
           <bind_material>
             <technique_common>
-              <instance_material symbol="Material_001-material" target="#Material_001-material"/>
+              <instance_material symbol="Heart-material" target="#Heart-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>

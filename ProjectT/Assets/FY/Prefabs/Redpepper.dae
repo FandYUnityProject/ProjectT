@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.75.0 commit date:2015-07-07, commit time:14:56, hash:c27589e</authoring_tool>
     </contributor>
-    <created>2015-08-12T17:04:06</created>
-    <modified>2015-08-12T17:04:06</modified>
+    <created>2015-08-13T09:30:36</created>
+    <modified>2015-08-13T09:30:36</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -103,7 +103,7 @@
   </library_lights>
   <library_images/>
   <library_effects>
-    <effect id="Material_001-effect">
+    <effect id="RedpepperRed-effect">
       <profile_COMMON>
         <technique sid="common">
           <phong>
@@ -129,7 +129,7 @@
         </technique>
       </profile_COMMON>
     </effect>
-    <effect id="Material_002-effect">
+    <effect id="RedpepperGreen-effect">
       <profile_COMMON>
         <technique sid="common">
           <phong>
@@ -157,11 +157,11 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="Material_001-material" name="Material_001">
-      <instance_effect url="#Material_001-effect"/>
+    <material id="RedpepperRed-material" name="RedpepperRed">
+      <instance_effect url="#RedpepperRed-effect"/>
     </material>
-    <material id="Material_002-material" name="Material_002">
-      <instance_effect url="#Material_002-effect"/>
+    <material id="RedpepperGreen-material" name="RedpepperGreen">
+      <instance_effect url="#RedpepperGreen-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -190,13 +190,13 @@
         <vertices id="Cylinder-mesh-vertices">
           <input semantic="POSITION" source="#Cylinder-mesh-positions"/>
         </vertices>
-        <polylist material="Material_001-material" count="68">
+        <polylist material="RedpepperRed-material" count="68">
           <input semantic="VERTEX" source="#Cylinder-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Cylinder-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
           <p>1 0 3 0 2 0 3 1 5 1 4 1 5 2 7 2 6 2 7 3 9 3 8 3 9 4 11 4 10 4 11 5 13 5 12 5 13 6 15 6 14 6 15 7 17 7 16 7 19 9 1 9 0 9 17 10 19 10 18 10 10 11 25 11 24 11 20 12 21 12 31 12 8 13 24 13 23 13 0 14 2 14 21 14 4 15 6 15 23 15 2 16 4 16 22 16 18 17 0 17 20 17 16 18 18 18 29 18 16 19 28 19 27 19 14 20 27 20 26 20 12 21 26 21 25 21 30 22 32 22 34 22 28 23 38 23 37 23 25 24 35 24 34 24 21 25 22 25 32 25 28 26 29 26 39 26 26 27 36 27 35 27 23 28 33 28 32 28 29 29 20 29 30 29 27 30 37 30 36 30 24 31 34 31 33 31 0 0 1 0 2 0 2 72 3 72 4 72 4 73 5 73 6 73 6 3 7 3 8 3 8 4 9 4 10 4 10 5 11 5 12 5 12 6 13 6 14 6 14 7 15 7 16 7 18 9 19 9 0 9 16 74 17 74 18 74 8 75 10 75 24 75 30 76 20 76 31 76 6 77 8 77 23 77 20 78 0 78 21 78 22 79 4 79 23 79 21 80 2 80 22 80 29 81 18 81 20 81 28 82 16 82 29 82 14 83 16 83 27 83 12 84 14 84 26 84 10 85 12 85 25 85 36 86 39 86 30 86 36 22 37 22 38 22 34 22 35 22 36 22 32 22 33 22 34 22 30 22 31 22 32 22 36 22 38 22 39 22 30 22 34 22 36 22 27 87 28 87 37 87 24 88 25 88 34 88 31 89 21 89 32 89 38 90 28 90 39 90 25 91 26 91 35 91 22 92 23 92 32 92 39 93 29 93 30 93 26 94 27 94 36 94 23 95 24 95 33 95</p>
         </polylist>
-        <polylist material="Material_002-material" count="108">
+        <polylist material="RedpepperGreen-material" count="108">
           <input semantic="VERTEX" source="#Cylinder-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Cylinder-mesh-normals" offset="1"/>
           <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
@@ -221,8 +221,8 @@
         <instance_geometry url="#Cylinder-mesh" name="Cylinder">
           <bind_material>
             <technique_common>
-              <instance_material symbol="Material_001-material" target="#Material_001-material"/>
-              <instance_material symbol="Material_002-material" target="#Material_002-material"/>
+              <instance_material symbol="RedpepperRed-material" target="#RedpepperRed-material"/>
+              <instance_material symbol="RedpepperGreen-material" target="#RedpepperGreen-material"/>
             </technique_common>
           </bind_material>
         </instance_geometry>
