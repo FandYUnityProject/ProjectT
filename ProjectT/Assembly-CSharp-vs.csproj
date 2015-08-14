@@ -67,7 +67,7 @@
      <Compile Include="Assets\YY\Scripts\RotateGimmick.cs" />
      <Compile Include="Assets\YY\Scripts\StatusController.cs" />
      <Compile Include="Assets\YY\Scripts\TextController.cs" />
-     <Compile Include="Assets\YY\move3D.cs" />
+     <Compile Include="Assets\YY\Scripts\UVChange.cs" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
      <None Include="Assets\UnityChan\license.txt" />
