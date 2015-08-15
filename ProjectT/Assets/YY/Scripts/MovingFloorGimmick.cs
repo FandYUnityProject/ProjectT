@@ -1,5 +1,5 @@
 ﻿/*
- * MovingFloorGimmic.cs
+ * MovingFloorGimmick.cs
  * 
  * 説明：移動する床(乗り物)の処理
  *      Playerが乗ると、乗り物の表情が変わり、プロペラの回転スピードが早くなる
@@ -112,7 +112,7 @@ public class MovingFloorGimmick : MonoBehaviour {
 		if (other.gameObject.name == "Player") {
 
 			// プロペラの回転スピードを早くする
-			propellerRotateSpeed = 30.0f;
+			MovePropeller(30.0f);
 			cameraObject.transform.parent = this.gameObject.transform;
 
 			// マテリアル変更
@@ -132,7 +132,7 @@ public class MovingFloorGimmick : MonoBehaviour {
 		if (other.gameObject.name == "Player") {
 
 			// プロペラの回転スピードを元に戻す
-			propellerRotateSpeed = 10.0f;
+			MovePropeller(10.0f);
 			cameraObject.transform.parent = null;
 
 			// マテリアル変更
@@ -141,5 +141,17 @@ public class MovingFloorGimmick : MonoBehaviour {
 			paulObj.GetComponent<Renderer>().material = facePaulMaterials[material_index];
 			eyeObj.GetComponent<Renderer>().material  = eyeMaterials[material_index];
 		}
+	}
+
+	void MovePropeller(float movePropellerRotateSpeed){
+		
+		// プロペラを徐々に動かす/停止させる
+		iTween.ValueTo(gameObject, iTween.Hash("from", propellerRotateSpeed, "to", movePropellerRotateSpeed, "time", 1.5f, "onupdate", "UpdateHandler"));
+	}
+
+	void UpdateHandler(float value)
+	{
+		// プロペラの速度を反映
+		propellerRotateSpeed = value;
 	}
 }

@@ -1,9 +1,11 @@
 ﻿/*
- * MovingFloorGimmic.cs
+ * MovingFloorGimmickSleep.cs
  * 
- * 説明：移動する床(乗り物)の処理
- *      Playerが乗ると、乗り物の表情が変わり、プロペラの回転スピードが早くなる
- *      Playerが乗ると、慣性処理でPlayerも床に合わせて動く
+ * 説明：・移動する床(乗るまで移動しないver)の処理
+ *		・Playerが乗るまで乗り物が動かず、眠っている。
+ *		・Playerが乗ると、乗り物の表情が変わり、指定先の往路を辿る。
+ *		・移動が終わると、再び眠る。
+ *		・もう一度乗ると、復路を辿る。
  * 
  * --- How To Use ---
  * アタッチ：MovingFloorGimmick(gameObject)
@@ -37,8 +39,8 @@ public class MovingFloorGimmickSleep : MonoBehaviour {
 	public float propellerRotateSpeed = 0.0f;	// プロペラの回転スピード
 	
 	// moveDistanceまで動いたら折り返すためにフラグを立てる
-	public bool isTurn = false;
-	public bool isMove = false;
+	private bool isTurn = false;
+	private bool isMove = false;
 	
 	// マテリアル変更
 	public GameObject faceObj;		// 顔
@@ -105,9 +107,10 @@ public class MovingFloorGimmickSleep : MonoBehaviour {
 				moveSpeed *= -1; //逆方向へ動かす
 				moved = Vector3.zero;
 			}
-			
-			propellerObj.transform.Rotate (new Vector3 (0, propellerRotateSpeed, 0), Space.World);
 		}
+
+		// プロペラを回す
+		propellerObj.transform.Rotate (new Vector3 (0, propellerRotateSpeed, 0), Space.World);
 	}
 	
 	void OnCollisionEnter(Collision other) {
@@ -125,7 +128,7 @@ public class MovingFloorGimmickSleep : MonoBehaviour {
 			isMove = true;
 			
 			// プロペラの回転スピードを早くする
-			propellerRotateSpeed = 20.0f;
+			MovePropeller(20.0f);
 			cameraObject.transform.parent = this.gameObject.transform;
 			
 			// マテリアル変更
@@ -153,12 +156,24 @@ public class MovingFloorGimmickSleep : MonoBehaviour {
 	void MoveFloorGimmickSleep(){
 		
 		// プロペラの回転スピードを元に戻す
-		propellerRotateSpeed = 0.0f;
+		MovePropeller(0.0f);
 		
 		// マテリアル変更
 		material_index = 0;
 		faceObj.GetComponent<Renderer>().material = facePaulMaterials[material_index];
 		paulObj.GetComponent<Renderer>().material = facePaulMaterials[material_index];
 		eyeObj.GetComponent<Renderer>().material  = eyeMaterials[material_index];
+	}
+
+	void MovePropeller(float movePropellerRotateSpeed){
+
+		// プロペラを徐々に動かす/停止させる
+		iTween.ValueTo(gameObject, iTween.Hash("from", propellerRotateSpeed, "to", movePropellerRotateSpeed, "time", 1.5f, "onupdate", "UpdateHandler"));
+	}
+
+	void UpdateHandler(float value)
+	{
+		// プロペラの速度を反映
+		propellerRotateSpeed = value;
 	}
 }
