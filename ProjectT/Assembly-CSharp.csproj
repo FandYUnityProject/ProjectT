@@ -64,6 +64,7 @@
      <Compile Include="Assets\YY\Scripts\LiftGimmick.cs" />
      <Compile Include="Assets\YY\Scripts\MessageIcon.cs" />
      <Compile Include="Assets\YY\Scripts\MovingFloorGimmick.cs" />
+     <Compile Include="Assets\YY\Scripts\MovingFloorGimmickSleep.cs" />
      <Compile Include="Assets\YY\Scripts\Pauser.cs" />
      <Compile Include="Assets\YY\Scripts\PlayerGround.cs" />
      <Compile Include="Assets\YY\Scripts\RotateGimmick.cs" />
