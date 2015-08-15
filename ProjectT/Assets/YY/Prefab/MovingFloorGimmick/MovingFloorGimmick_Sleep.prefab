@@ -479,8 +479,6 @@ MonoBehaviour:
   moveDistance: {x: 10, y: 10, z: 0}
   propellerObj: {fileID: 104376}
   propellerRotateSpeed: 0
-  isTurn: 0
-  isMove: 0
   faceObj: {fileID: 114476}
   eyeObj: {fileID: 102768}
   paulObj: {fileID: 116648}
