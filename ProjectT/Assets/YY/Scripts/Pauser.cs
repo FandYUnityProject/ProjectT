@@ -40,6 +40,8 @@ public class Pauser : MonoBehaviour {
 	
 	public static Transform  beforeCameraParent;	// ポーズ前のカメラオブジェクトの親オブジェクトを格納
 	public static Transform  beforePlayerParent;	// ポーズ前のプレイヤーオブジェクトの親オブジェクトを格納
+
+	iTween itween;
 	
 	// Use this for initialization
 	void Start() {
@@ -177,6 +179,9 @@ public class Pauser : MonoBehaviour {
 		
 		// ポーズ前の状態にコンポーネントの有効状態を復元
 		foreach ( var comp in pauseBehavs ) {
+
+			// 今後エラーが出そうなら、if文を消して”RotateGimmick”からPauseを外す
+			if( comp != itween )
 			comp.enabled = true;
 		}
 
