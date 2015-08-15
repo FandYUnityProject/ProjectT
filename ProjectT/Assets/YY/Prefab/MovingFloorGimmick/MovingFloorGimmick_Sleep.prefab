@@ -76,6 +76,7 @@ GameObject:
   - 4: {fileID: 404236}
   - 114: {fileID: 11408064}
   - 65: {fileID: 6516956}
+  - 114: {fileID: 11416192}
   m_Layer: 0
   m_Name: MovingFloorGimmick_Sleep
   m_TagString: Untagged
@@ -489,6 +490,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 315ad4b404d5e46efb6077c0034c281d, type: 2}
   - {fileID: 2100000, guid: c7eacfe3e477d4db586cafc143e0acbc, type: 2}
   material_index: 0
+--- !u!114 &11416192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676ecc48c89534c559812e6cfaf47db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11493964
 MonoBehaviour:
   m_ObjectHideFlags: 1

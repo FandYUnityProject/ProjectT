@@ -35,6 +35,12 @@ public class Pauser : MonoBehaviour {
 	public static bool isKeyP        = false;	// "Pキー”を押しているかどうか
 	public static bool isNotArrowKey;			// 矢印キーを押しているかどうか
 	
+	private GameObject cameraObject;	// カメラオブジェクト
+	private GameObject playerObject;	// プレイヤーオブジェクト
+	
+	public static Transform  beforeCameraParent;	// ポーズ前のカメラオブジェクトの親オブジェクトを格納
+	public static Transform  beforePlayerParent;	// ポーズ前のプレイヤーオブジェクトの親オブジェクトを格納
+	
 	// Use this for initialization
 	void Start() {
 
@@ -46,6 +52,13 @@ public class Pauser : MonoBehaviour {
 		isPause = true;
 
 		isNotArrowKey = true;
+
+		
+		// カメラオブジェクトを取得
+		cameraObject = GameObject.Find ("Main Camera");
+		
+		// プレイヤーオブジェクトを取得
+		playerObject = GameObject.Find ("Player");
 	}
 
 	// Update is called once per frame
@@ -102,6 +115,13 @@ public class Pauser : MonoBehaviour {
 	// ポーズされたとき
 	void OnPause() {
 
+		// カメラ、プレイヤーが何かしらの子オブジェクトに入っていれば、親オブジェクトを取得する。
+		if (cameraObject.transform.parent != null) { beforeCameraParent = cameraObject.transform.parent; }
+		if (playerObject.transform.parent != null) { beforePlayerParent = playerObject.transform.parent; }
+
+		// カメラが子オブジェクトのままポーズすると真っ暗になるので、一時的に子オブジェクトを解除する
+		cameraObject.transform.parent = null;
+
 		// ポーズ対象が無ければ処理終了
 		if ( pauseBehavs != null ) {
 			return;
@@ -141,6 +161,14 @@ public class Pauser : MonoBehaviour {
 	
 	// ポーズ解除されたとき
 	void OnResume() {
+
+		// ポーズ前にカメラ、プレイヤーが何かしらの子オブジェクトに入っていれば、再び子オブジェクトとして配置する。
+		if (beforeCameraParent != null) { cameraObject.transform.parent = beforeCameraParent; }
+		if (beforePlayerParent != null) { playerObject.transform.parent = beforePlayerParent; }
+
+		// 親プロジェクト情報を初期化する。
+		beforeCameraParent = null;
+		beforePlayerParent = null;
 
 		// ポーズ対象が無ければ処理終了
 		if ( pauseBehavs == null ) {

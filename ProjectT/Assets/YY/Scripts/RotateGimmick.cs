@@ -59,7 +59,7 @@ public class RotateGimmick : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void MoveRotate(){
@@ -69,17 +69,18 @@ public class RotateGimmick : MonoBehaviour {
 
 		// 初めの上下に動く挙動が終わった後、遠心力を有効にする
 		// (Unityでは、動くオブジェクトの上に別のオブジェクトを乗せても、上のオブジェクトが動かない)
-		iTween.MoveTo (gameObject, iTween.Hash ( "y", transform.position.y + moveScale, "delay", firstDelay,                                "time",  moveMotionTime / moveSpeed, "easetype", iTween.EaseType.linear));
-		iTween.MoveTo (gameObject, iTween.Hash ( "y", transform.position.y            , "delay", firstDelay + (moveMotionTime / moveSpeed), "time", moveMotionTime / moveSpeed, "easetype", iTween.EaseType.linear));
+		iTween.MoveTo (gameObject, iTween.Hash ("y", transform.position.y + moveScale, "delay", firstDelay, "time", moveMotionTime / moveSpeed, "easetype", iTween.EaseType.linear));
+		iTween.MoveTo (gameObject, iTween.Hash ("y", transform.position.y, "delay", firstDelay + (moveMotionTime / moveSpeed), "time", moveMotionTime / moveSpeed, "easetype", iTween.EaseType.linear));
 
 		// 回転角度を更新
 		rotateTo += 90;
-		if( rotateTo >=360 ) { rotateTo = 0; }
-
-		//if( rotateTo >=  )
+		if (rotateTo >= 360) {
+			rotateTo = 0;
+		}
 
 		// 回転後、アニメーションを繰り返す
-		iTween.RotateTo(gameObject, iTween.Hash("x", rotateTo, "delay", firstDelay + (moveMotionTime / moveSpeed) * 5, "time", rotateMotionTime / rotateSpeed, "easetype", iTween.EaseType.linear, "onstart", "AddForceStart", "oncomplete", "MoveRotate"));
+		iTween.RotateTo (gameObject, iTween.Hash ("x", rotateTo, "delay", firstDelay + (moveMotionTime / moveSpeed) * 5, "time", rotateMotionTime / rotateSpeed, "easetype", iTween.EaseType.linear, "onstart", "AddForceStart", "oncomplete", "MoveRotate"));
+	
 	}
 
 	void AddForceStart(){
@@ -98,7 +99,9 @@ public class RotateGimmick : MonoBehaviour {
 
 				// 遠心力の実行
 				// Debug.Log ("AddForce");
-				coll.transform.GetComponent<Rigidbody>().AddForce(addForceX, addForceY, addForceZ);
+				if (!Pauser.isPause) { 
+					coll.transform.GetComponent<Rigidbody>().AddForce(addForceX, addForceY, addForceZ);
+				}
 			}
 		}
 	}
