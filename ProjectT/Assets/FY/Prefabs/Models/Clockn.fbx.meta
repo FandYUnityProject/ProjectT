@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ca10e46b30a1a56419151f5eedefd7cc
-timeCreated: 1439689252
+guid: 78aeecf08fd6ff649845ddac8c390945
+timeCreated: 1439693938
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -21,8 +21,7 @@ ModelImporter:
     100026: Camera
     100028: //RootNode
     100030: Foots
-    100032: Lamp
-    100034: LargeClockHand
+    100032: LargeClockHand
     400000: Armature
     400002: Bone
     400004: Bone.001_L
@@ -39,8 +38,7 @@ ModelImporter:
     400026: Camera
     400028: //RootNode
     400030: Foots
-    400032: Lamp
-    400034: LargeClockHand
+    400032: LargeClockHand
     4300000: LargeClockHand
     4300002: Foots
     7400000: Armature|Idle
@@ -68,193 +66,7 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Armature|Idle
-      takeName: Armature|Idle
-      firstFrame: 0
-      lastFrame: 48
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Bone_end
-        weight: 1
-      - path: Armature/Bone.001_L
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002/Bone.001_L.003
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002/Bone.001_L.003/Bone.001_L.003_end
-        weight: 1
-      - path: Armature/Bone.001_R
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002/Bone.001_R.003
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002/Bone.001_R.003/Bone.001_R.003_end
-        weight: 1
-      - path: Armature/Lamp
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Foots
-        weight: 1
-      - path: LargeClockHand
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: Armature|Walk
-      takeName: Armature|Walk
-      firstFrame: 0
-      lastFrame: 48
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Bone_end
-        weight: 1
-      - path: Armature/Bone.001_L
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002/Bone.001_L.003
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002/Bone.001_L.003/Bone.001_L.003_end
-        weight: 1
-      - path: Armature/Bone.001_R
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002/Bone.001_R.003
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002/Bone.001_R.003/Bone.001_R.003_end
-        weight: 1
-      - path: Armature/Lamp
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Foots
-        weight: 1
-      - path: LargeClockHand
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-    - serializedVersion: 16
-      name: LargeClockHand|Walk
-      takeName: LargeClockHand|Walk
-      firstFrame: 0
-      lastFrame: 48
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Armature
-        weight: 1
-      - path: Armature/Bone
-        weight: 1
-      - path: Armature/Bone/Bone_end
-        weight: 1
-      - path: Armature/Bone.001_L
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002/Bone.001_L.003
-        weight: 1
-      - path: Armature/Bone.001_L/Bone.001_L.001/Bone.001_L.002/Bone.001_L.003/Bone.001_L.003_end
-        weight: 1
-      - path: Armature/Bone.001_R
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002/Bone.001_R.003
-        weight: 1
-      - path: Armature/Bone.001_R/Bone.001_R.001/Bone.001_R.002/Bone.001_R.003/Bone.001_R.003_end
-        weight: 1
-      - path: Armature/Lamp
-        weight: 1
-      - path: Camera
-        weight: 1
-      - path: Foots
-        weight: 1
-      - path: LargeClockHand
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
