@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SpeedFloor_Up
+  m_Name: GravityChange
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,17 +19,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 5184ce9aa23604c2d8e186dd31249da6, type: 3}
+          m_Texture: {fileID: 2800000, guid: e4c4fe890abb740ab9336c52957f9344, type: 3}
           m_Scale: {x: 1, y: 1}
-<<<<<<< HEAD
-          m_Offset: {x: 0, y: -33.5102577}
-=======
-<<<<<<< HEAD
-          m_Offset: {x: 0, y: -30.1802769}
-=======
-          m_Offset: {x: 0, y: -25.5601711}
->>>>>>> origin/master
->>>>>>> origin/master
+          m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
