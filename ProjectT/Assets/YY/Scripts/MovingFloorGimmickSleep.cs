@@ -39,7 +39,7 @@ public class MovingFloorGimmickSleep : MonoBehaviour {
 	public float propellerRotateSpeed = 0.0f;	// プロペラの回転スピード
 	
 	// moveDistanceまで動いたら折り返すためにフラグを立てる
-	private bool isTurn = false;
+	// private bool isTurn = false;
 	private bool isMove = false;
 	
 	// マテリアル変更
