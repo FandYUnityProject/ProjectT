@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2344282}
   - 114: {fileID: 11433690}
   - 114: {fileID: 11491662}
+  - 114: {fileID: 11451156}
   m_Layer: 0
   m_Name: RotateGimmick_High
   m_TagString: Untagged
@@ -94,6 +95,17 @@ MonoBehaviour:
   addForceX: -2500
   addForceY: 0
   addForceZ: 0
+--- !u!114 &11451156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676ecc48c89534c559812e6cfaf47db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11491662
 MonoBehaviour:
   m_ObjectHideFlags: 1

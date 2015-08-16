@@ -143,6 +143,7 @@ GameObject:
   - 4: {fileID: 451778}
   - 114: {fileID: 11451082}
   - 65: {fileID: 6597926}
+  - 114: {fileID: 11473458}
   m_Layer: 0
   m_Name: MovingFloorGimmick
   m_TagString: Untagged
@@ -185,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4000001, y: .5, z: -25.5}
+  m_LocalPosition: {x: 6.4000001, y: 0, z: -25.5}
   m_LocalScale: {x: 3, y: .400000006, z: 3}
   m_Children:
   - {fileID: 416768}
@@ -490,6 +491,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d20c306e82de0444bbc12e201048764d, type: 2}
   - {fileID: 2100000, guid: 1216133640d844532a1d9c7ae43a4461, type: 2}
   material_index: 0
+--- !u!114 &11473458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676ecc48c89534c559812e6cfaf47db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11494440
 MonoBehaviour:
   m_ObjectHideFlags: 1

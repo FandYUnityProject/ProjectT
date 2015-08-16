@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2392932}
   - 114: {fileID: 11476794}
   - 114: {fileID: 11407486}
+  - 114: {fileID: 11473744}
   m_Layer: 0
   m_Name: RotateGimmick_Slow
   m_TagString: Untagged
@@ -84,6 +85,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4841951fa869a4a60aa6ae7891d5a5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11473744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676ecc48c89534c559812e6cfaf47db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11476794
