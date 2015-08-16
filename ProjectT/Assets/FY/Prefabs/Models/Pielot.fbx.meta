@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: c15d62dc27f2fae45958ab4a72a8775b
+timeCreated: 1439705845
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Armature
+    100002: BaseBone
+    100004: BootsBone_L
+    100006: BootsBone_L_end
+    100008: BootsBone_R
+    100010: BootsBone_R_end
+    100012: FootBone_L
+    100014: FootBone_R
+    100016: FootNeckBone_L
+    100018: ForeArmBone_L
+    100020: ForeArmBone_L_end
+    100022: ForeArmBone_R
+    100024: ForeArmBone_R_end
+    100026: FotNeckBone_R
+    100028: haraBone
+    100030: HeadBone
+    100032: HeadBone_end
+    100034: NeckBone
+    100036: //RootNode
+    100038: PielotBody
+    100040: PielotFace
+    100042: PielotFoot
+    100044: PielotHat
+    100046: PielotNOse
+    100048: senaBone
+    100050: sholder_L
+    100052: SholderBone_R
+    100054: UpperArmBone_L
+    100056: UpperArmBone_R
+    100058: UpperFootBone_L
+    100060: UpperFootBone_R
+    400000: Armature
+    400002: BaseBone
+    400004: BootsBone_L
+    400006: BootsBone_L_end
+    400008: BootsBone_R
+    400010: BootsBone_R_end
+    400012: FootBone_L
+    400014: FootBone_R
+    400016: FootNeckBone_L
+    400018: ForeArmBone_L
+    400020: ForeArmBone_L_end
+    400022: ForeArmBone_R
+    400024: ForeArmBone_R_end
+    400026: FotNeckBone_R
+    400028: haraBone
+    400030: HeadBone
+    400032: HeadBone_end
+    400034: NeckBone
+    400036: //RootNode
+    400038: PielotBody
+    400040: PielotFace
+    400042: PielotFoot
+    400044: PielotHat
+    400046: PielotNOse
+    400048: senaBone
+    400050: sholder_L
+    400052: SholderBone_R
+    400054: UpperArmBone_L
+    400056: UpperArmBone_R
+    400058: UpperFootBone_L
+    400060: UpperFootBone_R
+    4300000: PielotFoot
+    4300002: PielotBody
+    4300004: PielotHat
+    4300006: PielotNOse
+    4300008: PielotFace
+    7400000: Armature|Idle
+    7400002: Armature|Walk
+    7400004: PielotBody|Walk
+    7400006: PielotHat|Idle
+    9500000: //RootNode
+    13700000: PielotBody
+    13700002: PielotFace
+    13700004: PielotFoot
+    13700006: PielotHat
+    13700008: PielotNOse
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Idle
+      takeName: Armature|Idle
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/BaseBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/NeckBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/NeckBone/HeadBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/NeckBone/HeadBone/HeadBone_end
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L/UpperArmBone_L
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L/UpperArmBone_L/ForeArmBone_L
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L/UpperArmBone_L/ForeArmBone_L/ForeArmBone_L_end
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R/UpperArmBone_R
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R/UpperArmBone_R/ForeArmBone_R
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R/UpperArmBone_R/ForeArmBone_R/ForeArmBone_R_end
+        weight: 1
+      - path: Armature/UpperFootBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L/FootNeckBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L/FootNeckBone_L/BootsBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L/FootNeckBone_L/BootsBone_L/BootsBone_L_end
+        weight: 1
+      - path: Armature/UpperFootBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R/FotNeckBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R/FotNeckBone_R/BootsBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R/FotNeckBone_R/BootsBone_R/BootsBone_R_end
+        weight: 1
+      - path: PielotBody
+        weight: 1
+      - path: PielotFace
+        weight: 1
+      - path: PielotFoot
+        weight: 1
+      - path: PielotHat
+        weight: 1
+      - path: PielotNOse
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|Walk
+      takeName: Armature|Walk
+      firstFrame: 0
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/BaseBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/NeckBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/NeckBone/HeadBone
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/NeckBone/HeadBone/HeadBone_end
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L/UpperArmBone_L
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L/UpperArmBone_L/ForeArmBone_L
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/sholder_L/UpperArmBone_L/ForeArmBone_L/ForeArmBone_L_end
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R/UpperArmBone_R
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R/UpperArmBone_R/ForeArmBone_R
+        weight: 1
+      - path: Armature/BaseBone/haraBone/senaBone/SholderBone_R/UpperArmBone_R/ForeArmBone_R/ForeArmBone_R_end
+        weight: 1
+      - path: Armature/UpperFootBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L/FootNeckBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L/FootNeckBone_L/BootsBone_L
+        weight: 1
+      - path: Armature/UpperFootBone_L/FootBone_L/FootNeckBone_L/BootsBone_L/BootsBone_L_end
+        weight: 1
+      - path: Armature/UpperFootBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R/FotNeckBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R/FotNeckBone_R/BootsBone_R
+        weight: 1
+      - path: Armature/UpperFootBone_R/FootBone_R/FotNeckBone_R/BootsBone_R/BootsBone_R_end
+        weight: 1
+      - path: PielotBody
+        weight: 1
+      - path: PielotFace
+        weight: 1
+      - path: PielotFoot
+        weight: 1
+      - path: PielotHat
+        weight: 1
+      - path: PielotNOse
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
