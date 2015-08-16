@@ -49,9 +49,9 @@
      <Compile Include="Assets\FY\Scripts\DamageByContact.cs" />
      <Compile Include="Assets\FY\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\FY\Scripts\EnemyMoveControllerChase.cs" />
+     <Compile Include="Assets\FY\Scripts\FlowItemController.cs" />
      <Compile Include="Assets\FY\Scripts\GetByContact.cs" />
      <Compile Include="Assets\FY\Scripts\ItemRotateController.cs" />
-     <Compile Include="Assets\FlowItemController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
      <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />

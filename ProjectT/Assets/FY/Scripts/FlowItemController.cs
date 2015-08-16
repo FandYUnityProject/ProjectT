@@ -6,7 +6,7 @@ public class FlowItemController : MonoBehaviour {
 	Vector3 flowMovement;
 	Transform juelTransform;
 	public float flowTime;
-	public float timer;
+	private float timer;
 	bool isUp = false;
 	public float speed;
 	public float rotationalSpeed;
