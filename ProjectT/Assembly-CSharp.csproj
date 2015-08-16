@@ -70,6 +70,7 @@
      <Compile Include="Assets\YY\Scripts\PlayerGround.cs" />
      <Compile Include="Assets\YY\Scripts\RotateGimmick.cs" />
      <Compile Include="Assets\YY\Scripts\RotateGimmickTest.cs" />
+     <Compile Include="Assets\YY\Scripts\SpeedFloor.cs" />
      <Compile Include="Assets\YY\Scripts\StatusController.cs" />
      <Compile Include="Assets\YY\Scripts\TextController.cs" />
      <Compile Include="Assets\YY\Scripts\UVChange.cs" />
