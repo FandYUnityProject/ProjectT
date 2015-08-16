@@ -60,6 +60,8 @@ public class SpeedFloor : MonoBehaviour {
 	}
 
 	void OnCollisionExit (Collision coll){
+
+		//if( this.gameObject.name == "SpeedFloorUpY" ) { coll.transform.Rotate ( -270.0f, 0.0f, 0.0f); new Vector3( 0.00f, -9.81f,  0.00f);}
 		
 		addedForceX = 0.0f;
 		addedForceY = 0.0f;

@@ -61,6 +61,8 @@
      <Compile Include="Assets\YY\Scripts\ContinueButton.cs" />
      <Compile Include="Assets\YY\Scripts\CourseOutButton.cs" />
      <Compile Include="Assets\YY\Scripts\GameSaveButton.cs" />
+     <Compile Include="Assets\YY\Scripts\GravityChangeGimmick.cs" />
+     <Compile Include="Assets\YY\Scripts\GravityReturnGimmick.cs" />
      <Compile Include="Assets\YY\Scripts\LiftFloorGimmick.cs" />
      <Compile Include="Assets\YY\Scripts\LiftGimmick.cs" />
      <Compile Include="Assets\YY\Scripts\MessageIcon.cs" />
@@ -69,7 +71,6 @@
      <Compile Include="Assets\YY\Scripts\Pauser.cs" />
      <Compile Include="Assets\YY\Scripts\PlayerGround.cs" />
      <Compile Include="Assets\YY\Scripts\RotateGimmick.cs" />
-     <Compile Include="Assets\YY\Scripts\RotateGimmickTest.cs" />
      <Compile Include="Assets\YY\Scripts\SpeedFloor.cs" />
      <Compile Include="Assets\YY\Scripts\StatusController.cs" />
      <Compile Include="Assets\YY\Scripts\TextController.cs" />
