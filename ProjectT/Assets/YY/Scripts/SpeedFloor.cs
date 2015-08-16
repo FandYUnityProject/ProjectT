@@ -20,6 +20,10 @@ public class SpeedFloor : MonoBehaviour {
 	public float addForceX = 0.0f;
 	public float addForceY = 0.0f;
 	public float addForceZ = 500.0f;
+	
+	public float addedForceX = 0.0f;
+	public float addedForceY = 0.0f;
+	public float addedForceZ = 0.0f;
 
 	public  float materialOffsetSpeed = 0.05f;	// スクロールするスピード
 	private float scrollOffset = 0.0f;			// オフセットのスクロール具合
@@ -43,18 +47,22 @@ public class SpeedFloor : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter (Collision coll){
-
-		if (gameObject.name == "SpeedFloorUpY") {
-			//coll.transform.Rotate(270.0f, 0.0f, 0.0f);
-		}
-	}
-
 	void OnCollisionStay (Collision coll){
 
 		if (coll.gameObject.name == "Player") {
 			
+			addedForceX = addForceX * Time.deltaTime;
+			addedForceY = addForceY * Time.deltaTime;
+			addedForceZ = addForceZ * Time.deltaTime;
+
 			coll.transform.GetComponent<Rigidbody> ().AddForce (addForceX, addForceY, addForceZ);
 		}
+	}
+
+	void OnCollisionExit (Collision coll){
+		
+		addedForceX = 0.0f;
+		addedForceY = 0.0f;
+		addedForceZ = 0.0f;
 	}
 }
