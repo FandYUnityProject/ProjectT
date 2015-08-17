@@ -62,6 +62,6 @@ public class CourseOutButton : MonoBehaviour {
 	void OnComplete()
 	{
 		Debug.Log ("End");
-		Application.LoadLevel ("MainMap_YY");
+		Application.LoadLevel ("Plaza");
 	}
 }
