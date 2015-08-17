@@ -17,15 +17,15 @@ public class FlowItemController : MonoBehaviour {
 
 	void MoveFlow(){
 		if (timer < flowTime && isUp) {
-			transform.Translate (new Vector3(0f,0f,1f* Time.deltaTime * speed));
-			transform.Rotate (new Vector3 (0f,0f,rotationalSpeed));
+			transform.Translate (new Vector3(0f,1f* Time.deltaTime * speed,0f));
+			transform.Rotate (new Vector3 (0f,rotationalSpeed,0f));
 			timer += Time.deltaTime;
 			if (timer > flowTime) {
 				isUp = false;
 			}
 		} else if (timer >= 0f && !isUp) {
-			transform.Translate (new Vector3(0f,0f,-1f* Time.deltaTime * speed));
-			transform.Rotate (new Vector3 (0f,0f,rotationalSpeed));
+			transform.Translate (new Vector3(0f,-1f* Time.deltaTime * speed,0f));
+			transform.Rotate (new Vector3 (0f,rotationalSpeed,0f));
 			timer -= Time.deltaTime;
 			if(timer < 0f){
 				isUp = true;
