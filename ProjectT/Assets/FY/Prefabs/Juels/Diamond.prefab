@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowTime: 3
-  timer: 0
   speed: .200000003
   rotationalSpeed: 1
 --- !u!1001 &100100000
