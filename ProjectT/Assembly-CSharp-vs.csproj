@@ -71,7 +71,9 @@
      <Compile Include="Assets\YY\Scripts\MovingFloorGimmickSleep.cs" />
      <Compile Include="Assets\YY\Scripts\Pauser.cs" />
      <Compile Include="Assets\YY\Scripts\PlayerGround.cs" />
+     <Compile Include="Assets\YY\Scripts\PlazaScene.cs" />
      <Compile Include="Assets\YY\Scripts\RotateGimmick.cs" />
+     <Compile Include="Assets\YY\Scripts\SkyBoxRotateChange.cs" />
      <Compile Include="Assets\YY\Scripts\SpeedFloor.cs" />
      <Compile Include="Assets\YY\Scripts\StatusController.cs" />
      <Compile Include="Assets\YY\Scripts\TextController.cs" />
