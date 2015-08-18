@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FY\Scripts\CameraTest.cs" />
+     <Compile Include="Assets\FY\Scripts\CharacterMoveController.cs" />
      <Compile Include="Assets\FY\Scripts\DamageByContact.cs" />
      <Compile Include="Assets\FY\Scripts\EnemyHealth.cs" />
      <Compile Include="Assets\FY\Scripts\EnemyMoveControllerChase.cs" />
