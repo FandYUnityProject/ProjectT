@@ -3,16 +3,34 @@ using System.Collections;
 
 public class PlanetGravity : MonoBehaviour {
 	
-	public static Vector3 gravityDirection;
-
-	static Vector3 planetPosition;
+	private Vector3 gravityDirection;
+	private Vector3 planetPosition;
+	GameObject player;
+	bool isNear = false;
 
 	void Start(){
-		planetPosition = transform.position;
+		player = GameObject.FindGameObjectWithTag ("Player");
+		planetPosition = this.transform.position;
+		Debug.Log (planetPosition);
 	}
 
-	public static Vector3 GravityCalc(Vector3 targetPos){
-		gravityDirection = targetPos - planetPosition;
-		return -1*gravityDirection;
+	void FixedUpdate(){
+		gravityDirection = -1*(PlanetGravityMover.playerPosittion - planetPosition);
+		if (isNear) {
+			Debug.Log(gravityDirection);
+			PlanetGravityMover.AddGravity(gravityDirection);
+		}
+	}
+
+	void OnTriggerEnter(Collider coll){
+		if (coll.gameObject.tag == "Player") {
+			isNear = true;
+		}
+	}
+
+	void OnTriggerExit(Collider coll){
+		if (coll.gameObject.tag == "Player") {
+			isNear = false;
+		}
 	}
 }
