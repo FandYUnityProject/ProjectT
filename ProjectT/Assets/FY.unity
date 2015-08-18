@@ -359,12 +359,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402098793}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalRotation: {x: .382683456, y: 0, z: 0, w: .923879504}
+  m_LocalPosition: {x: 0, y: 4, z: -3.27999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1764745475}
-  m_RootOrder: 1
+  m_Father: {fileID: 822299205}
+  m_RootOrder: 0
 --- !u!4 &790837041 stripped
 Transform:
   m_PrefabParentObject: {fileID: 454948, guid: 3b089c8cf49373a4ab05b37a0c521b3b, type: 2}
@@ -424,11 +424,11 @@ GameObject:
   - 114: {fileID: 822299207}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &822299201
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 822299200}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c3f4412c6f94ee94d86bd6c2b60d29da, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -496,7 +496,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 402098799}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!114 &822299206
@@ -684,7 +685,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929705616}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c3f4412c6f94ee94d86bd6c2b60d29da, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1270,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1764745469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,7 +1365,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1376952800}
-  - {fileID: 402098799}
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!1 &1837940831
