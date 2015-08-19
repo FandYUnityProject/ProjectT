@@ -5,10 +5,11 @@ public class PlanetGravityMover : MonoBehaviour {
 
 	public static Rigidbody rb;
 	public static Vector3 playerPosittion;
-	public static float strongness = 1f;
+	public static float strongness;
 
 	void Start(){
 		rb = GetComponent<Rigidbody> ();
+		strongness = rb.mass;
 	}
 
 	void FixedUpdate(){
@@ -17,6 +18,6 @@ public class PlanetGravityMover : MonoBehaviour {
 
 	public static void AddGravity(Vector3 localGravity){
 		rb.AddForce (localGravity * strongness);
-		Debug.Log (localGravity);
+		//Debug.Log (localGravity);
 	}
 }

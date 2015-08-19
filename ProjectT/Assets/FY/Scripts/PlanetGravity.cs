@@ -11,13 +11,12 @@ public class PlanetGravity : MonoBehaviour {
 	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player");
 		planetPosition = this.transform.position;
-		Debug.Log (planetPosition);
+
 	}
 
 	void FixedUpdate(){
 		gravityDirection = -1*(PlanetGravityMover.playerPosittion - planetPosition);
 		if (isNear) {
-			Debug.Log(gravityDirection);
 			PlanetGravityMover.AddGravity(gravityDirection);
 		}
 	}
