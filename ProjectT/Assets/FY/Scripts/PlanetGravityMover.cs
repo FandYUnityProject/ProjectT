@@ -3,24 +3,21 @@ using System.Collections;
 
 public class PlanetGravityMover : MonoBehaviour {
 
-	private Rigidbody rb;
-	public Vector3 localGravity;
+	public static Rigidbody rb;
+	public static Vector3 playerPosittion;
+	public static float strongness;
 
 	void Start(){
 		rb = GetComponent<Rigidbody> ();
+		strongness = rb.mass;
 	}
 
-	void Update(){
-		AddGravity();
+	void FixedUpdate(){
+		playerPosittion = transform.position;
 	}
 
-	void OnTriggerStay(Collider coll){
-		if (coll.gameObject.tag == "Planet") {
-			localGravity = PlanetGravity.GravityCalc(transform.position);
-		}
-	}
-
-	void AddGravity(){
-		rb.AddForce (localGravity);
+	public static void AddGravity(Vector3 localGravity){
+		rb.AddForce (localGravity * strongness);
+		//Debug.Log (localGravity);
 	}
 }
