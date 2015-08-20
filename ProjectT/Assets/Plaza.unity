@@ -115,12 +115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bdbd11b3bf9c498e954b216c1e4ccd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkyBox: {fileID: 2100000, guid: 2b009aae9dd07425eb8431a564928949, type: 2}
+  SkyBox: {fileID: 2100000, guid: 0dc2be894a7134ffa9d9977e751523eb, type: 2}
   duration: .660000026
   skyRotate: .00999999978
   smooth: 3
-  skyCamPosNormal: {fileID: 0}
-  skyCamPosUp: {fileID: 0}
+  skyCamPosNormal: {fileID: 125798590}
+  skyCamPosUp: {fileID: 1506677992}
 --- !u!65 &41454613
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 690197527}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!4 &636356670 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 40046bae76ac54bffb59f14f47d9ba1b, type: 2}
@@ -358,7 +358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 690197527}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &1908318637
 Prefab:
   m_ObjectHideFlags: 0
@@ -523,6 +523,10 @@ Prefab:
       propertyPath: skyCamPosNormal
       value: 
       objectReference: {fileID: 125798590}
+    - target: {fileID: 11400374, guid: c02f876f58d0d4757ab15b82ec9db2f8, type: 2}
+      propertyPath: SkyBox
+      value: 
+      objectReference: {fileID: 2100000, guid: 0dc2be894a7134ffa9d9977e751523eb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c02f876f58d0d4757ab15b82ec9db2f8, type: 2}
   m_IsPrefabParent: 0
