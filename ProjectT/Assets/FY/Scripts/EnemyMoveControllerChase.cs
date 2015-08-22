@@ -8,7 +8,7 @@ public class EnemyMoveControllerChase : MonoBehaviour {
 	Animator anim;
 	bool isDetect = false;
 
-	void Awake(){
+	void Start(){
 		player = GameObject.FindGameObjectWithTag ("Player").transform;
 		nav = GetComponent<NavMeshAgent> ();
 		anim = GetComponent<Animator> ();
